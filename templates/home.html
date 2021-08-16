@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<script src="{{url_for('static', filename='lib/home.js')}}"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Crypto Correlation Calculator</h2>
+        <form action="Calculate", method = 'POST'>
+            <div class="user-box">
+            <input type="text" name="Crypto1" id="Crypto1" required="">
+            <label>Crypto 1 Symbol</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="Crypto2" id="Crypto2" required="">
+            <label>Crypto 2 Symbol</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="sdate" id="sdate" required="">
+            <label>Start Date</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="edate" id="edate" required="">
+            <label>End Date</label>
+          </div>
+          <div class = "user-box">
+          <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <input type="submit" value="Calculate Cofficient">
+          </a>
+        </div>
+        </form>
+      </div>
+
+</form>
+</select>
+</body>
+</html>
