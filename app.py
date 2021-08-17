@@ -46,9 +46,11 @@ def calculate():
                     mode='lines',  name = c2))
                     #mode = lines
         #fig.update_layout(title='line charts',)
+        cdata = [{'name':c1},{'name':c2}]
+        ddata = [{'sdate':start_date,'edate':end_date}]
         data = [trace1,trace2]
         graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template('Visualize.html',graphJSON=graphJSON)
+        return render_template('Visualize.html',graphJSON=graphJSON,cdata=cdata,ddate=ddata)
 
     #Calculate Correlation
 
@@ -58,4 +60,6 @@ def calculate():
 
 
 if __name__ == '__main__':
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
