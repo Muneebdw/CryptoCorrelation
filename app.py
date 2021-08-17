@@ -49,8 +49,11 @@ def calculate():
         cdata = [{'name':c1},{'name':c2}]
         ddata = [{'sdate':start_date,'edate':end_date}]
         data = [trace1,trace2]
+        col1 = data['Close']
+        col2 = data2['Close']
+        correlation= col1.corr(col2)
         graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template('Visualize.html',graphJSON=graphJSON,cdata=cdata,ddate=ddata)
+        return render_template('Visualize.html',graphJSON=graphJSON,cdata=cdata,ddate=ddata,correlation=correlation)
 
     #Calculate Correlation
 

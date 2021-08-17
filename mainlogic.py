@@ -18,13 +18,14 @@ files = []
 to_drop = ['Open','High','Low','Adj Close', 'Volume']
 data = pdr.get_data_yahoo(ticket_list[0], start=start_date, end=today)
 data2 = pdr.get_data_yahoo(ticket_list[1], start=start_date, end=today)
+
 data.drop(to_drop,inplace=True,axis=1)
 #data2.drop(to_drop,inplace=True,axis=1)
 #data['date']=data.Date
 #data = pd.pivot_table(data,values='Close',index='Date')
-print(data.columns)
+#print(data.columns)
 
-data.to_csv('test.csv')
+#data.to_csv('test.csv')
 #data2.to_csv('test2.csv')
 
 '''fig = px.line(data, title='Correlation')
