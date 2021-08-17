@@ -39,6 +39,8 @@ def calculate():
         data = pdr.get_data_yahoo(ticket_list[0], start=start_date, end=today)
         data2 = pdr.get_data_yahoo(ticket_list[1], start=start_date, end=today)
         data.drop(to_drop,inplace=True,axis=1)
+        data2.drop(to_drop,inplace=True,axis=1)
+
         #fig = go.Figure()
         trace1 = (go.Scatter(x=data.index, y=data['Close'],
                     mode='lines',  name = c1))
@@ -48,11 +50,11 @@ def calculate():
         #fig.update_layout(title='line charts',)
         cdata = [{'name':c1},{'name':c2}]
         ddata = [{'sdate':start_date,'edate':end_date}]
-        data = [trace1,trace2]
+        gdata = [trace1,trace2]
         col1 = data['Close']
         col2 = data2['Close']
         correlation= col1.corr(col2)
-        graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+        graphJSON = json.dumps(gdata, cls=plotly.utils.PlotlyJSONEncoder)
         return render_template('Visualize.html',graphJSON=graphJSON,cdata=cdata,ddate=ddata,correlation=correlation)
 
     #Calculate Correlation
