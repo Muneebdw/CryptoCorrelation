@@ -54,6 +54,7 @@ def calculate():
         col1 = data['Close']
         col2 = data2['Close']
         correlation= col1.corr(col2)
+        correlation = round(correlation,5)
         graphJSON = json.dumps(gdata, cls=plotly.utils.PlotlyJSONEncoder)
         return render_template('Visualize.html',graphJSON=graphJSON,cdata=cdata,ddate=ddata,correlation=correlation)
 
